@@ -14,5 +14,4 @@ yarn-error.log
 /vendor/
 node_modules/
 yarn-error.log
-composer.json
 .idea
