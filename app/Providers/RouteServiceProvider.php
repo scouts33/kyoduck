@@ -20,6 +20,11 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/home';
 
     /**
+     * @var string
+     */
+    public const ADMIN_HOME = '/admin/home';
+
+    /**
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void
@@ -32,6 +37,11 @@ class RouteServiceProvider extends ServiceProvider
             Route::prefix('api')
                 ->middleware('api')
                 ->group(base_path('routes/api.php'));
+
+            Route::middleware('admin')
+                ->prefix('admin')
+                ->namespace('App\Http\Controllers\Admin')
+                ->group(base_path('routes/admin.php'));
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
