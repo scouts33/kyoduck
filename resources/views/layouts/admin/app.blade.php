@@ -10,47 +10,91 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/admin-lte.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/admin-lte.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
     <div class="wrapper">
+        <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
             </ul>
         </nav>
-    </div>
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="/admin/home" class="brand-link logo-switch">
-            <span>관리자 페이지</span>
-        </a>
-        <div class="sidebar">
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu">
-                    <li class="nav-item">
-                        <a href="/admin/list" class="nav-link">
-                            <p>
-                                관리자 관리
-                            </p>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="/admin/register" class="brand-link">
+                <span class="brand-text font-weight-light">관리자 페이지</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    관리자 관리
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/register" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>관리자 등록</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/widgets.html" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    회원관리
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <div id="app">
+            @yield("content")
         </div>
-    </aside>
-    <div class="content-wrapper px-4 py-2" style="min-height: 688px;">
-        @yield('content')
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.1.0-pre
+            </div>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
     </div>
 </div>
 </body>
