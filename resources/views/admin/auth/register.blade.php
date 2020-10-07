@@ -22,19 +22,19 @@
                     <div class="col-md-12 card">
                         <form>
                             <div class="form-group col-12 form-inline">
-                                <label for="id" class="col-1">Email</label>
-                                <input class="form-control col-8" type="text" name="email" id="email" placeholder="name@example.com">
+                                <label for="id" class="col-md-1 col-sm-12 text-center">Email</label>
+                                <input class="form-control col-md-8 col-sm-12" type="text" name="email" id="email" placeholder="name@example.com">
                             </div>
                             <div class="form-group col-12 form-inline">
-                                <label for="password" class="col-1">password</label>
+                                <label for="password" class="col-1 text-center">password</label>
                                 <input class="form-control col-8" type="password" name="password" id="password" placeholder="password">
                             </div>
                             <div class="form-group col-12 form-inline">
-                                <label for="id" class="col-1">password check</label>
+                                <label for="id" class="col-1 text-center">password check</label>
                                 <input class="form-control col-8" type="password" name="password_check" id="password_check" placeholder="name@example.com">
                             </div>
                             <div class="form-group col-12 form-inline">
-                                <label for="id" class="col-1">name</label>
+                                <label for="id" class="col-1 text-center">name</label>
                                 <input class="form-control col-8" type="text" name="name" id="name" placeholder="홍길동">
                             </div>
                             <div></div>
