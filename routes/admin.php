@@ -9,7 +9,3 @@ Route::get('/', function () {
 Route::namespace('Auth')->group(function () {
     Route::resource( 'auth','AuthController');
 });
-
-
-
-

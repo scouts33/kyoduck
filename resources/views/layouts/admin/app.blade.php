@@ -97,8 +97,10 @@
         <!-- /.control-sidebar -->
     </div>
 </div>
-
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        toastr().success('아아아아');
+    </script>
 </body>
 </html>
