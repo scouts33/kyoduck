@@ -11,4 +11,10 @@ class AdminUserService
     {
         return AdminUser::create($request->getAdminInfo());
     }
+
+    public function getAllAdminUsers($adminUserFilter)
+    {
+
+        return AdminUser::where('', '')->get();
+    }
 }

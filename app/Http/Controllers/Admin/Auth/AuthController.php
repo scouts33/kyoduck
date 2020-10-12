@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin\Auth;
 
+use App\Filter\Admin\AdminUserFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\AuthCreateRequest;
 use App\Services\AdminUserService;
@@ -14,20 +15,22 @@ class AuthController extends Controller
         $this->adminUserService = $adminUserService;
     }
 
-    public function index()
+    public function index(AdminUserFilter $adminUserFilter)
     {
-        return view('admin.auth.register');
+        $this->adminUserService->getAllAdminUsers($adminUserFilter);
+
+        return view('admin.auth.index');
     }
 
     public function store(AuthCreateRequest $request)
     {
-        $this->adminUserService->create($request);
+//        $this->adminUserService->create($request);
+
+        return redirect('/admin/auth');
     }
 
     public function create()
     {
-        dd(123);
-
         return view('admin.auth.register');
     }
     public function show()
