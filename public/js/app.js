@@ -50281,8 +50281,10 @@ try {
 
   __webpack_require__(/*! admin-lte */ "./node_modules/admin-lte/dist/js/adminlte.min.js");
 
-  __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
-} catch (e) {}
+  window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+} catch (e) {
+  window.console.log(e);
+}
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

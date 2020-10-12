@@ -21,7 +21,7 @@ class AuthController extends Controller
 
     public function store(AuthCreateRequest $request)
     {
-        dd($this->adminUserService->create($request));
+        $this->adminUserService->create($request);
     }
 
     public function create()

@@ -28,7 +28,7 @@ class AuthCreateRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
-                Rule::unique('Admin_users', 'email')
+//                Rule::unique('Admin_users', 'email')
             ],
             'password' => [
                 'required',
@@ -48,7 +48,7 @@ class AuthCreateRequest extends FormRequest
      */
     public function getAdminInfo()
     {
-        return collect($this->all())->pluck([
+        return $this->only([
             'email',
             'password',
             'name'

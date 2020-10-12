@@ -9,15 +9,6 @@
                     <div class="col-sm-6">
                         <h1 class="m-0 text-dark">관리자 등록</h1>
                     </div><!-- /.col -->
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -65,3 +56,4 @@
         <!-- /.content -->
     </div>
 @endsection
+
