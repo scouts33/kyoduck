@@ -23,20 +23,20 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="form-row">
-                                    <div class="col-md-10">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <button class="btn btn-success">등록</button>
+                                            <button class="btn btn-success" id="adminCreate" data-location="{{ route('auth.create') }}">등록</button>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-6">
                                         <div class="form-inline form-row">
-                                            <select name="option" class="form-control col-sm-3" style="text-align-last:center">
+                                            <select name="option" class="form-control col-md-12 col-lg-3" style="text-align-last:center">
                                                 <option value="name">이름</option>
                                                 <option value="mobile">mobile</option>
                                                 <option value="email">email</option>
                                             </select>
-                                            <input type="text" name="value" value="" class="form-control col-sm-6" placeholder="검색어를 입력해 주세요" style="margin-left:5px; margin-right:5px">
-                                            <button class="btn btn-primary col-sm-2">검색</button>
+                                            <input type="text" name="value" value="" class="form-control col-md-12 col-lg-7" placeholder="검색어를 입력해 주세요">
+                                            <button class="btn btn-primary col-md-12 col-lg-2">검색</button>
                                         </div>
                                     </div>
                                 </div>
@@ -54,22 +54,34 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @if($adminUsers->count() > 0)
+                                        @foreach($adminUsers as $adminUser)
                                         <tr>
-                                            <td class="text-center"></td>
-                                            <td class="text-center"></td>
-                                            <td class="text-center"></td>
-                                            <td class="text-center"></td>
-                                            <td class="text-center"></td>
+                                            <td class="text-center">{{ $adminUser->id }}</td>
+                                            <td class="text-center">{{ $adminUser->email }}</td>
+                                            <td class="text-center">{{ $adminUser->name }}</td>
+                                            <td class="text-center">{{ $adminUser->mobile }}</td>
+                                            <td class="text-center">{{ $adminUser->created_at }}</td>
                                             <td class="text-center">
-                                                <button type="button" class="btn btn-primary">수정</button>
-                                                <button type="button" class="btn btn-danger">삭제</button>
+                                                <button type="button" class="btn btn-primary update-button" data-id="{{ $adminUser->id }}">수정</button>
+                                                <button type="button" class="btn btn-danger delete-button" data-id="{{ $adminUser->id }}">삭제</button>
                                             </td>
                                         </tr>
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td class="text-center" colspan="6">EMPTY</td>
+                                        </tr>
+                                    @endif
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+                    <form action="" method="POST" id="delete-form" name="delete-form">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                 </div>
                 <!-- /.row (main row) -->
             </div><!-- /.container-fluid -->
@@ -78,3 +90,20 @@
     </div>
 @endsection
 
+@section('script')
+    <script>
+        $(function() {
+            $('#adminCreate').on('click', function() {
+                location.href = $(this).data('location');
+            });
+            $('.update-button').on('click', function() {
+                location.href = '/admin/auth/'+$(this).data('id')+'/edit';
+            });
+            $('.delete-button').on('click', function() {
+                if(confirm('관리자를 정말 삭제 하시겠습니까?')) {
+                    $('#delete-form').attr('action', '/admin/auth/'+$(this).data('id')).submit();
+                }
+            });
+        });
+    </script>
+@endsection

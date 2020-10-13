@@ -17,15 +17,19 @@ class AuthController extends Controller
 
     public function index(AdminUserFilter $adminUserFilter)
     {
-        $this->adminUserService->getAllAdminUsers($adminUserFilter);
+        $adminUsers = $this->adminUserService->getAllAdminUsers($adminUserFilter);
 
-        return view('admin.auth.index');
+        return view('admin.auth.index', [
+                'adminUsers' => $adminUsers
+            ]
+        );
     }
 
     public function store(AuthCreateRequest $request)
     {
-//        $this->adminUserService->create($request);
+        $this->adminUserService->create($request);
 
+        session()->flash('success', "Send Successfully");
         return redirect('/admin/auth');
     }
 

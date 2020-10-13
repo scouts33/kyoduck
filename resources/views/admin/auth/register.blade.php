@@ -41,6 +41,10 @@
                                         <label for="id" class="col-sm-12 col-md-2 text-center">name</label>
                                         <input class="form-control col-sm-12 col-md-10" type="text" name="name" id="name" placeholder="홍길동">
                                     </div>
+                                    <div class="form-group col-12 form-inline">
+                                        <label for="id" class="col-sm-12 col-md-2 text-center">mobile</label>
+                                        <input class="form-control col-sm-12 col-md-10" type="text" name="mobile" id="mobile" placeholder="01012341234">
+                                    </div>
                                     <div class="col-12 text-center">
                                         <button type="submit" class="btn btn-primary">등록</button>
                                         <button type="button" class="btn btn-danger">취소</button>

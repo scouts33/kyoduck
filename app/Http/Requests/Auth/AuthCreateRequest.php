@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Rules\Phone;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -39,6 +40,10 @@ class AuthCreateRequest extends FormRequest
             ],
             'name' => [
                 'required'
+            ],
+            'mobile' => [
+                'required',
+                new Phone()
             ]
         ];
     }
@@ -51,7 +56,8 @@ class AuthCreateRequest extends FormRequest
         return $this->only([
             'email',
             'password',
-            'name'
+            'name',
+            'mobile',
         ]);
     }
 }
