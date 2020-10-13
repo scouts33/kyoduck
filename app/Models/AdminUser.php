@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\QueryFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,6 +13,8 @@ class AdminUser extends Authenticatable
     use HasFactory;
     use Notifiable;
     use SoftDeletes;
+    use QueryFilter;
+
 
     protected $table = 'admin_users';
     /**
