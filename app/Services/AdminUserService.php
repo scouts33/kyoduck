@@ -15,6 +15,5 @@ class AdminUserService
     public function getAllAdminUsers($adminUserFilter)
     {
 
-        return AdminUser::where('', '')->get();
     }
 }
