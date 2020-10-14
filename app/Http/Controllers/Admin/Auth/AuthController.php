@@ -6,14 +6,27 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\AuthCreateRequest;
 use App\Models\AdminUser;
 use App\Services\AdminUserService;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    private $adminUserService;
+    use AuthenticatesUsers;
 
+    private $adminUserService;
     public function __construct(AdminUserService $adminUserService)
     {
         $this->adminUserService = $adminUserService;
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('admin');
+    }
+
+    public function showLoginForm()
+    {
+        return view('admin.auth.login');
     }
 
     public function index(AdminUserFilter $adminUserFilter)

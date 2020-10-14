@@ -18,4 +18,4 @@ yarn-error.log
 .idea
 /public
 
-/docker/mysql
+/docker/mysql/*
