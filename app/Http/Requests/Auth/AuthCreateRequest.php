@@ -5,7 +5,6 @@ namespace App\Http\Requests\Auth;
 use App\Rules\Phone;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rule;
 
 class AuthCreateRequest extends FormRequest
 {

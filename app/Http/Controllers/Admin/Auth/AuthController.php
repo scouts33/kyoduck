@@ -19,11 +19,6 @@ class AuthController extends Controller
         $this->adminUserService = $adminUserService;
     }
 
-    protected function guard()
-    {
-        return Auth::guard('admin');
-    }
-
     public function showLoginForm()
     {
         return view('admin.auth.login');
