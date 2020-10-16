@@ -22,8 +22,10 @@ class AuthController extends Controller
     {
         $adminUsers = $this->adminUserService->getAllAdminUsers($adminUserFilter);
 
+        $a = AdminUser::queryAdminFilter($adminUserFilter)->get();
+
         return view('admin.auth.index', [
-                'adminUsers' => $adminUsers
+                'adminUsers' => $a
             ]
         );
     }
@@ -59,10 +61,5 @@ class AuthController extends Controller
 
         session()->flash('success', "Send Successfully");
         return redirect('/admin/auth');
-    }
-
-    public function login()
-    {
-
     }
 }

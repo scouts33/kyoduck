@@ -8,27 +8,28 @@ class AdminUserFilter extends Filter
 {
     protected $filters = [
         'email',
-        'name'
+        'name',
+        'mobile'
     ];
 
     public function name($name)
     {
-        $this->builder->where('name', $name);
+        $this->builder->where('name', 'like', "%{$name}%");
     }
 
     public function email($email)
     {
-        $this->builder->where('email', $email);
+        $this->builder->where('email', 'like', "%{$email}%");
     }
 
     public function mobile($mobile)
     {
-        $this->builder->where('mobile', $mobile);
+        $this->builder->where('mobile', 'like', "%{$mobile}%");
     }
 
     public function init()
     {
-
+        $this->builder->orderBy('id', 'desc')->paginate(15);
     }
 }
 

@@ -14,7 +14,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" name="email" class="form-control" placeholder="test@email.com">
+                            <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="test@email.com" aria-describedby="email-fail" required>
+                            <div id="email-fail" class="invalid-feedback">입력하신 정보가 올바르지 않습니다.</div>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
@@ -22,9 +23,9 @@
                             </div>
                             <input type="password" class="form-control" placeholder="password" name="password">
                         </div>
-                        <div class="row align-items-center remember">
-                            <input type="checkbox">Remember Me
-                        </div>
+{{--                        <div class="row align-items-center remember">--}}
+{{--                            <input type="checkbox" name="remember" id="remember" value="true"><label for="remember">Remember Me</label>--}}
+{{--                        </div>--}}
                         <div class="form-group">
                             <input type="submit" value="Login" class="btn float-right login_btn">
                         </div>
@@ -38,6 +39,12 @@
             </div>
         </div>
     </div>
+
+    @if (count($errors) > 0)
+        @foreach ($errors->all() as $error)
+            {{$error}}
+        @endforeach
+    @endif
 @endsection
 
 @section("style")

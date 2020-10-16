@@ -18,7 +18,6 @@
     <link href="{{ mix('css/admin-lte.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app">
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -27,6 +26,12 @@
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
+            </ul>
+            <ul class="nav navbar-nav ml-auto">
+                <form action="{{route('admin/logout')}}" method="post">
+                    @csrf()
+                    <li class="nav-item"><button class="btn btn-danger btn-block" type="submit">logout</button></li>
+                </form>
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -93,7 +98,7 @@
         </aside>
         <!-- /.control-sidebar -->
     </div>
-</div>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('script')

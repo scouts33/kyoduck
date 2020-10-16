@@ -20,6 +20,5 @@
     @yield("style")
 <body>
     @yield("content")
-</div>
 </body>
 </html>

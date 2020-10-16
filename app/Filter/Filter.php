@@ -18,6 +18,20 @@ abstract class Filter
         $this->request = $request;
     }
 
+    public function adminApply($builder)
+    {
+        $this->builder = $builder;
+//        option, value
+
+        $filter = Str::camel($this->request->get('option'));
+        if(method_exists($this, $filter)) {
+            $this->{$filter}($this->request->get('value'));
+        }
+
+        if (method_exists($this, 'init')) {
+            $this->init();
+        }
+    }
     public function apply($builder)
     {
         $this->builder = $builder;

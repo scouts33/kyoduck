@@ -29,15 +29,17 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-inline form-row">
-                                            <select name="option" class="form-control col-md-12 col-lg-3" style="text-align-last:center">
-                                                <option value="name">이름</option>
-                                                <option value="mobile">mobile</option>
-                                                <option value="email">email</option>
-                                            </select>
-                                            <input type="text" name="value" value="" class="form-control col-md-12 col-lg-7" placeholder="검색어를 입력해 주세요">
-                                            <button class="btn btn-primary col-md-12 col-lg-2">검색</button>
-                                        </div>
+                                        <form method="get">
+                                            <div class="form-inline form-row">
+                                                <select name="option" class="form-control col-md-12 col-lg-3" style="text-align-last:center">
+                                                    <option @if(request()->get('option') == "name")selected @endif value="name">이름</option>
+                                                    <option @if(request()->get('option') == "mobile")selected @endif value="mobile">mobile</option>
+                                                    <option @if(request()->get('option') == "email")selected @endif value="email">email</option>
+                                                </select>
+                                                <input type="text" name="value" value="{{ request()->get('value') }}" class="form-control col-md-12 col-lg-7" placeholder="검색어를 입력해 주세요">
+                                                <button class="btn btn-primary col-md-12 col-lg-2">검색</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

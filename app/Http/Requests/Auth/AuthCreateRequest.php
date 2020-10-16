@@ -4,6 +4,7 @@ namespace App\Http\Requests\Auth;
 
 use App\Rules\Phone;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Hash;
 
 class AuthCreateRequest extends FormRequest
 {
@@ -52,7 +53,6 @@ class AuthCreateRequest extends FormRequest
      */
     public function getAdminInfo()
     {
-        dd($this->get('password'));
         return[
             'email' => $this->request->get('email'),
             'password' => Hash::make($this->request->get('password')),
