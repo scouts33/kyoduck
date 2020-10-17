@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\User;
+namespace App\Http\Controllers\Admin;
 
 use App\Filter\Admin\AdminUserFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\AuthCreateRequest;
 use App\Services\UserService;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
