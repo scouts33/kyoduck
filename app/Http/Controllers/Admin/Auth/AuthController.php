@@ -22,10 +22,8 @@ class AuthController extends Controller
     {
         $adminUsers = $this->adminUserService->getAllAdminUsers($adminUserFilter);
 
-        $a = AdminUser::queryAdminFilter($adminUserFilter)->get();
-
         return view('admin.auth.index', [
-                'adminUsers' => $a
+                'adminUsers' => $adminUsers
             ]
         );
     }

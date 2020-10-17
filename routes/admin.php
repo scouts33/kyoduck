@@ -11,6 +11,7 @@ Route::get('/', function () {
 Route::namespace('Auth')->group(function () {
     Route::middleware('adminAuth:admin')->group(function () {
         Route::resource( 'auth','AuthController');
+        Route::resource('user', 'UserController');
     });
 
     Route::middleware('guest')->group(function () {
@@ -20,3 +21,7 @@ Route::namespace('Auth')->group(function () {
     });
 });
 
+
+Route::namespace('Auth')->group(function () {
+    
+});

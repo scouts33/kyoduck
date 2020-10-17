@@ -5,6 +5,7 @@ namespace App\Http\Requests\Auth;
 use App\Rules\Phone;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class AuthCreateRequest extends FormRequest
 {
@@ -29,7 +30,7 @@ class AuthCreateRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
-//                Rule::unique('Admin_users', 'email')
+                Rule::unique('Admin_users', 'email')
             ],
             'password' => [
                 'required',
