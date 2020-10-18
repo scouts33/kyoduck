@@ -41,61 +41,77 @@
                                         <label for="id" class="col-sm-12 col-md-2 text-center">주소</label>
                                         <input class="form-control col-sm-12 col-md-10" type="text" name="address" id="address" placeholder="방이동 108-16번지 남강빌딩 2층 1호 ">
                                     </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">나이</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="age" id="age" placeholder="18">
+                                    <div class="col-12 form-inline form-group">
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">나이</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="age" id="age" placeholder="18">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">품</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="pum" id="pum" placeholder="18">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">화장</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="hwajang" id="hwajang" placeholder="18">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">앞길</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="abgil" id="abgil" placeholder="18">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 form-inline form-group">
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">깃</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="git" id="git" placeholder="18">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">깃고대</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="gitgode" id="gitgode" placeholder="18">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">긴 동</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="gindong" id="gindong" placeholder="18">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">섶 옆</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="subyub" id="subyub" placeholder="18">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 form-inline form-group">
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">섭넓이</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="subnubi" id="subnubi" placeholder="18">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">깃넓이</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="gitsubi" id="gitsubi" placeholder="18">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">치마</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="chima" id="chima" placeholder="18">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">총장</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="chongjang" id="chongjang" placeholder="18">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 form-inline form-group">
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">재단</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="jedan" id="jedan" placeholder="18">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">디자인</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="design" id="design" placeholder="18">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">디자인</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="design" id="design" placeholder="18">
+                                        </div>
                                     </div>
                                     <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">품</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="pum" id="pum" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">화장</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="hwajang" id="hwajang" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">앞길</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="abgil" id="abgil" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">깃</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="git" id="git" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">깃고대</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="gitgode" id="gitgode" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">긴 동</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="gindong" id="gindong" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">섶 옆</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="subyub" id="subyub" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">섭넓이</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="subnubi" id="subnubi" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">깃넓이</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="gitsubi" id="gitsubi" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">치마</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="chima" id="chima" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">총장</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="chongjang" id="chongjang" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">재단</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="jedan" id="jedan" placeholder="18">
-                                    </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">디자인</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="design" id="design" placeholder="18">
+                                        <label for="id" class="col-sm-12 col-md-2 text-center">기타 사항</label>
+                                        <textarea class="form-control col-md-10 col-sm-12"></textarea>
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="submit" class="btn btn-primary">등록</button>
