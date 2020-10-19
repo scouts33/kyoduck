@@ -19,7 +19,9 @@ class CreateOrderTable extends Migration
             $table->string('fummung');
             $table->string('email')->nullable();
             $table->string('mobile');
+            $table->string('zip_code');
             $table->string('address');
+            $table->string('address_detail');
             $table->enum('gender', ['M', 'F']);
             $table->integer('age')->nullable();
             $table->integer('pum');

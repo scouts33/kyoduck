@@ -38,11 +38,23 @@
                                         <input class="form-control col-sm-12 col-md-10" type="text" name="fummung" id="fummung" placeholder="품명">
                                     </div>
                                     <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">주소</label>
-                                        <input class="form-control col-sm-12 col-md-8" type="text" name="address" id="address" placeholder="방이동 108-16번지 남강빌딩 2층 1호 ">
+                                        <label for="id" class="col-sm-12 col-md-2 text-center">기타 사항</label>
+                                        <textarea class="form-control col-md-10 col-sm-12"></textarea>
+                                    </div>
+                                    <div class="form-group col-12 form-inline">
+                                        <label for="password" class="col-md-2 col-sm-12 text-center">우편 번호</label>
+                                        <input class="form-control col-sm-12 col-md-2" type="text" name="zipcode" id="zipcode" readonly>
+                                    </div>
+                                    <div class="form-group col-12 form-inline">
+                                        <label for="id" class="col-sm-12 col-md-2 text-center">지번주소</label>
+                                        <input class="form-control col-sm-12 col-md-8" type="text" name="address" id="address" readonly>
+                                    </div>
+                                    <div class="form-group col-12 form-inline">
+                                        <label for="id" class="col-sm-12 col-md-2 text-center">상세주소</label>
+                               d         <input class="form-control col-sm-12 col-md-8" type="text" name="address_detail" id="address_detail">
                                         <button type="button" class="btn btn-success" id="addressSearch">주소 검색</button>
                                         <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
-                                            <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+                                            <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" alt="닫기 버튼">
                                         </div>
                                     </div>
                                     <div class="col-12 form-inline form-group">
@@ -113,10 +125,6 @@
                                             <input class="form-control col-sm-12 col-md-10" type="text" name="design" id="design" placeholder="18">
                                         </div>
                                     </div>
-                                    <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">기타 사항</label>
-                                        <textarea class="form-control col-md-10 col-sm-12"></textarea>
-                                    </div>
                                     <div class="col-12 text-center">
                                         <button type="submit" class="btn btn-primary">등록</button>
                                         <button type="button" class="btn btn-danger">취소</button>
@@ -139,6 +147,9 @@
         $(function() {
             $('#addressSearch').on('click', function() {
                 daumPostcode();
+            });
+            $('#btnCloseLayer').on('click', function() {
+                closeDaumPostcode();
             })
         })
         function daumPostcode()
@@ -146,7 +157,6 @@
             new daum.Postcode({
                 oncomplete: function(data) {
                     // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-                    console.log(data);
                     // 각 주소의 노출 규칙에 따라 주소를 조합한다.
                     // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                     var addr = ''; // 주소 변수
@@ -175,17 +185,18 @@
                             extraAddr = ' (' + extraAddr + ')';
                         }
                         // 조합된 참고항목을 해당 필드에 넣는다.
-                        document.getElementById("sample2_extraAddress").value = extraAddr;
+                        console.log(extraAddr);
+                        // document.getElementById("sample2_extraAddress").value = extraAddr;
 
                     } else {
-                        document.getElementById("sample2_extraAddress").value = '';
+                        // document.getElementById("sample2_extraAddress").value = '';
                     }
 
                     // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                    document.getElementById('sample2_postcode').value = data.zonecode;
-                    document.getElementById("sample2_address").value = addr;
+                    document.getElementById('zipcode').value = data.zonecode;
+                    document.getElementById("address").value = addr;
                     // 커서를 상세주소 필드로 이동한다.
-                    document.getElementById("sample2_detailAddress").focus();
+                    document.getElementById("address").focus();
 
                     // iframe을 넣은 element를 안보이게 한다.
                     // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
