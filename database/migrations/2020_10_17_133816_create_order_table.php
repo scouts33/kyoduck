@@ -40,6 +40,7 @@ class CreateOrderTable extends Migration
             $table->integer('jeabong')->nullable();
             $table->integer('design')->nullable();
             $table->dateTime('delivery_at');
+            $table->longText('etc');
             $table->softDeletes();
             $table->timestamps();
         });

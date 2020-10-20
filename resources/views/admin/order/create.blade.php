@@ -23,35 +23,35 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-title text-center">&nbsp;</div>
-                                <form action="/admin/auth" method="POST">
+                                <form action="{{ route('order.store') }}" method="POST">
                                     {{ @csrf_field() }}
                                     <div class="form-group col-12 form-inline">
                                         <label for="id" class="col-md-2 col-sm-12 text-center">성명</label>
-                                        <input class="form-control col-md-10 col-sm-12" type="text" name="name" id="name" placeholder="성춘향">
+                                        <input class="form-control col-md-10 col-sm-12" type="text" name="name" id="name" placeholder="성춘향" value="{{ old('name') }}">
                                     </div>
                                     <div class="form-group col-12 form-inline">
                                         <label for="id" class="col-sm-12 col-md-2 text-center">mobile</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="mobile" id="mobile" placeholder="01012341234">
+                                        <input class="form-control col-sm-12 col-md-10" type="text" name="mobile" id="mobile" placeholder="01012341234" value="{{ old('mobile') }}">
                                     </div>
                                     <div class="form-group col-12 form-inline">
                                         <label for="password" class="col-md-2 col-sm-12 text-center">품명</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="text" name="fummung" id="fummung" placeholder="품명">
+                                        <input class="form-control col-sm-12 col-md-10" type="text" name="fummung" id="fummung" placeholder="품명" value="{{ old('fummung') }}">
                                     </div>
                                     <div class="form-group col-12 form-inline">
                                         <label for="id" class="col-sm-12 col-md-2 text-center">기타 사항</label>
-                                        <textarea class="form-control col-md-10 col-sm-12"></textarea>
+                                        <textarea name="etc" class="form-control col-md-10 col-sm-12">{{ old('etc') }}</textarea>
                                     </div>
                                     <div class="form-group col-12 form-inline">
                                         <label for="password" class="col-md-2 col-sm-12 text-center">우편 번호</label>
-                                        <input class="form-control col-sm-12 col-md-2" type="text" name="zipcode" id="zipcode" readonly>
+                                        <input class="form-control col-sm-12 col-md-2" type="text" name="zip_code" id="zip_code" readonly >
                                     </div>
                                     <div class="form-group col-12 form-inline">
                                         <label for="id" class="col-sm-12 col-md-2 text-center">지번주소</label>
-                                        <input class="form-control col-sm-12 col-md-8" type="text" name="address" id="address" readonly>
+                                        <input class="form-control col-sm-12 col-md-8" type="text" name="address" id="address" readonly >
                                     </div>
                                     <div class="form-group col-12 form-inline">
                                         <label for="id" class="col-sm-12 col-md-2 text-center">상세주소</label>
-                               d         <input class="form-control col-sm-12 col-md-8" type="text" name="address_detail" id="address_detail">
+                                        <input class="form-control col-sm-12 col-md-8" type="text" name="address_detail" id="address_detail">
                                         <button type="button" class="btn btn-success" id="addressSearch">주소 검색</button>
                                         <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
                                             <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" alt="닫기 버튼">
@@ -59,70 +59,92 @@
                                     </div>
                                     <div class="col-12 form-inline form-group">
                                         <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">나이</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="age" id="age" placeholder="18">
-                                        </div>
-                                        <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">품</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="pum" id="pum" placeholder="18">
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="pum" id="pum" value="{{ old('pum') }}">
                                         </div>
                                         <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">화장</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="hwajang" id="hwajang" placeholder="18">
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="hwajang" id="hwajang" value="{{ old('hwajang') }}">
                                         </div>
                                         <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">앞길</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="abgil" id="abgil" placeholder="18">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 form-inline form-group">
-                                        <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">깃</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="git" id="git" placeholder="18">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">뒷길</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="ditgil" id="ditgil" value="{{ old('ditgil') }}">
                                         </div>
                                         <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">깃고대</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="gitgode" id="gitgode" placeholder="18">
-                                        </div>
-                                        <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">긴 동</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="gindong" id="gindong" placeholder="18">
-                                        </div>
-                                        <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">섶 옆</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="subyub" id="subyub" placeholder="18">
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="gitgode" id="gitgode" value="{{ old('gitgode') }}">
                                         </div>
                                     </div>
                                     <div class="col-12 form-inline form-group">
                                         <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">섭넓이</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="subnubi" id="subnubi" placeholder="18">
-                                        </div>
-                                        <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">깃넓이</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="gitsubi" id="gitsubi" placeholder="18">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">진동</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="gindong" id="gindong" value="{{ old('gindong') }}">
                                         </div>
                                         <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">치마</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="chima" id="chima" placeholder="18">
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="chima" id="chima" value="{{ old('chima') }}">
                                         </div>
                                         <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">총장</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="chongjang" id="chongjang" placeholder="18">
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="chongjang" id="chongjang" value="{{ old('chongjang') }}">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">나이</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="age" id="age" value="{{ old('age') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 form-inline form-group">
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">재봉</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="abgil" id="abgil" value="{{ old('abgil') }}">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">앞길</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="abgil" id="abgil" value="{{ old('abgil') }}">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">깃</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="git" id="git" value="{{ old('git') }}">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">긴 동</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="gindong" id="gindong" value="{{ old('gindong') }}">
                                         </div>
                                     </div>
                                     <div class="col-12 form-inline form-group">
                                         <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">섶 옆</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="subyub" id="subyub" value="{{ old('subyub') }}">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">섭넓이</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="subnubi" id="subnubi" value="{{ old('subnubi') }}">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">깃넓이</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="gitsubi" id="gitsubi" value="{{ old('gitsubi') }}">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">재단</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="jedan" id="jedan" placeholder="18">
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="jedan" id="jedan" value="{{ old('jedan') }}">
                                         </div>
+                                    </div>
+                                    <div class="col-12 form-inline form-group">
                                         <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">디자인</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="design" id="design" placeholder="18">
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="design" id="design" value="{{ old('design') }}">
                                         </div>
                                         <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">디자인</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="design" id="design" placeholder="18">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">납품일</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="datetime-local" name="delivery_at" id="delivery_at" value="{{ old('delivery_at') }}">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">성별</label>
+                                            <select name="gender" class="form-control col-sm-12 col-md-10">
+                                                <option value="M">남자</option>
+                                                <option value="F">여자</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-12 text-center">
@@ -193,7 +215,7 @@
                     }
 
                     // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                    document.getElementById('zipcode').value = data.zonecode;
+                    document.getElementById('zip_code').value = data.zonecode;
                     document.getElementById("address").value = addr;
                     // 커서를 상세주소 필드로 이동한다.
                     document.getElementById("address").focus();

@@ -27,4 +27,5 @@ class Order extends Model
         'deleted_at' => 'datetime',
     ];
 
+    protected $guarded = [];
 }
