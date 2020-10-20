@@ -77,10 +77,6 @@
                                     </div>
                                     <div class="col-12 form-inline form-group">
                                         <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">진동</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="gindong" id="gindong" value="{{ old('gindong') }}">
-                                        </div>
-                                        <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">치마</label>
                                             <input class="form-control col-sm-12 col-md-10" type="text" name="chima" id="chima" value="{{ old('chima') }}">
                                         </div>
@@ -92,13 +88,13 @@
                                             <label for="id" class="col-sm-12 col-md-2 text-center">나이</label>
                                             <input class="form-control col-sm-12 col-md-10" type="text" name="age" id="age" value="{{ old('age') }}">
                                         </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">재봉</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="jeabong" id="jeabong" value="{{ old('jeabong') }}">
+                                        </div>
                                     </div>
 
                                     <div class="col-12 form-inline form-group">
-                                        <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">재봉</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="abgil" id="abgil" value="{{ old('abgil') }}">
-                                        </div>
                                         <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">앞길</label>
                                             <input class="form-control col-sm-12 col-md-10" type="text" name="abgil" id="abgil" value="{{ old('abgil') }}">
@@ -108,15 +104,15 @@
                                             <input class="form-control col-sm-12 col-md-10" type="text" name="git" id="git" value="{{ old('git') }}">
                                         </div>
                                         <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">긴 동</label>
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">긴동</label>
                                             <input class="form-control col-sm-12 col-md-10" type="text" name="gindong" id="gindong" value="{{ old('gindong') }}">
+                                        </div>
+                                        <div class="col-md-3 form-inline form-group">
+                                            <label for="id" class="col-sm-12 col-md-2 text-center">섶옆</label>
+                                            <input class="form-control col-sm-12 col-md-10" type="text" name="subyub" id="subyub" value="{{ old('subyub') }}">
                                         </div>
                                     </div>
                                     <div class="col-12 form-inline form-group">
-                                        <div class="col-md-3 form-inline form-group">
-                                            <label for="id" class="col-sm-12 col-md-2 text-center">섶 옆</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="text" name="subyub" id="subyub" value="{{ old('subyub') }}">
-                                        </div>
                                         <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">섭넓이</label>
                                             <input class="form-control col-sm-12 col-md-10" type="text" name="subnubi" id="subnubi" value="{{ old('subnubi') }}">
@@ -129,15 +125,15 @@
                                             <label for="id" class="col-sm-12 col-md-2 text-center">재단</label>
                                             <input class="form-control col-sm-12 col-md-10" type="text" name="jedan" id="jedan" value="{{ old('jedan') }}">
                                         </div>
-                                    </div>
-                                    <div class="col-12 form-inline form-group">
                                         <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">디자인</label>
                                             <input class="form-control col-sm-12 col-md-10" type="text" name="design" id="design" value="{{ old('design') }}">
                                         </div>
+                                    </div>
+                                    <div class="col-12 form-inline form-group">
                                         <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">납품일</label>
-                                            <input class="form-control col-sm-12 col-md-10" type="datetime-local" name="delivery_at" id="delivery_at" value="{{ old('delivery_at') }}">
+                                            <input class="form-control col-sm-12 col-md-10" type="date" name="delivery_at" id="delivery_at" value="{{ old('delivery_at') }}">
                                         </div>
                                         <div class="col-md-3 form-inline form-group">
                                             <label for="id" class="col-sm-12 col-md-2 text-center">성별</label>
@@ -149,7 +145,7 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="submit" class="btn btn-primary">등록</button>
-                                        <button type="button" class="btn btn-danger">취소</button>
+                                        <button type="button" class="btn btn-danger" id="back-button">취소</button>
                                     </div>
                                 </form>
                             </div>
@@ -172,7 +168,10 @@
             });
             $('#btnCloseLayer').on('click', function() {
                 closeDaumPostcode();
-            })
+            });
+            $('#back-button').on('click', function() {
+                location.href = "{{ url()->previous() }}";
+            });
         })
         function daumPostcode()
         {
