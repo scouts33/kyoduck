@@ -13,6 +13,6 @@ class OrderService
      */
     public function getOrderFindByFilter(OrderFilter $orderFilter)
     {
-        return order::queryAdminFilter($orderFilter)->get();
+        return order::queryAdminFilter($orderFilter)->simplePaginate(1);
     }
 }
