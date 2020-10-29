@@ -25,7 +25,6 @@
                                 <div class="card-title text-center">&nbsp;</div>
                                 <form action="/admin/auth" method="POST">
                                     @csrf
-                                    @method('PATCH')
                                     <div class="form-group col-12 form-inline">
                                         <label for="id" class="col-md-2 col-sm-12 text-center">Email</label>
                                         <input class="form-control col-md-10 col-sm-12" type="text" name="email" id="email" placeholder="name@example.com" value="{{ $adminUser->email }}">

@@ -78,7 +78,7 @@
                                     @endif
                                     </tbody>
                                 </table>
-                                {{ $orders->links() }}
+                                {{ $orders->appends(['option' => request()->get('option'), 'value'=>request()->get('value')])->links() }}
                             </div>
                         </div>
                     </div>

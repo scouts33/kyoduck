@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\AuthCreateRequest;
 use App\Models\AdminUser;
 use App\Services\AdminUserService;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Client\Request;
 
 class AuthController extends Controller
 {
@@ -51,6 +52,11 @@ class AuthController extends Controller
         return view('admin.auth.edit', [
             'adminUser' => $auth
         ]);
+    }
+
+    public function update(Request $request)
+    {
+        dd(123);
     }
 
     public function destroy(AdminUser $auth)

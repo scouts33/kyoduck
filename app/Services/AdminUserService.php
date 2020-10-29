@@ -14,6 +14,6 @@ class AdminUserService
 
     public function getAllAdminUsers($adminUserFilter)
     {
-        return AdminUser::queryAdminFilter($adminUserFilter)->get();
+        return AdminUser::queryAdminFilter($adminUserFilter)->paginate(1);
     }
 }

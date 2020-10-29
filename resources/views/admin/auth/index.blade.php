@@ -77,6 +77,7 @@
                                     @endif
                                     </tbody>
                                 </table>
+                                {{ $adminUsers->appends(['option' => request()->get('option'), 'value'=>request()->get('value')])->links() }}
                             </div>
                         </div>
                     </div>
