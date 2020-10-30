@@ -23,19 +23,24 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-title text-center">&nbsp;</div>
-                                <form action="/admin/auth" method="POST">
+                                <form action="{{ route('auth.update', ['auth' => $adminUser->id]) }}" method="POST">
+                                    @method('PATCH')
                                     @csrf
                                     <div class="form-group col-12 form-inline">
                                         <label for="id" class="col-md-2 col-sm-12 text-center">Email</label>
-                                        <input class="form-control col-md-10 col-sm-12" type="text" name="email" id="email" placeholder="name@example.com" value="{{ $adminUser->email }}">
+                                        <input class="form-control col-md-10 col-sm-12" type="text" name="email" id="email" placeholder="name@example.com" value="{{ $adminUser->email }}" readonly>
                                     </div>
                                     <div class="form-group col-12 form-inline">
                                         <label for="password" class="col-md-2 col-sm-12 text-center">password</label>
                                         <input class="form-control col-sm-12 col-md-10" type="password" name="password" id="password" placeholder="password">
                                     </div>
                                     <div class="form-group col-12 form-inline">
-                                        <label for="id" class="col-sm-12 col-md-2 text-center">password check</label>
-                                        <input class="form-control col-sm-12 col-md-10" type="password" name="password_confirmation" id="password_confirmation">
+                                        <label for="id" class="col-sm-12 col-md-2 text-center">new Password</label>
+                                        <input class="form-control col-sm-12 col-md-10" type="password" name="new_password" id="new_password" placeholder="new Password">
+                                    </div>
+                                    <div class="form-group col-12 form-inline">
+                                        <label for="id" class="col-sm-12 col-md-2 text-center">password Check</label>
+                                        <input class="form-control col-sm-12 col-md-10" type="password" name="new_password_confirmation" id="new_password_confirmation" placeholder="password Check">
                                     </div>
                                     <div class="form-group col-12 form-inline">
                                         <label for="id" class="col-sm-12 col-md-2 text-center">name</label>

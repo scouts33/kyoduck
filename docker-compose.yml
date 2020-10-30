@@ -47,5 +47,14 @@ services:
     networks:
       - laravel
 
+  redis:
+    image: redis:6-alpine
+    container_name: redis2
+    volumes:
+    - ./docker/redis
+    ports:
+      - "63790:6379"
+    networks:
+      - laravel
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Auth;
 use App\Filter\Admin\AdminUserFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\AuthCreateRequest;
+use App\Http\Requests\Auth\AuthUpdateRequest;
 use App\Models\AdminUser;
 use App\Services\AdminUserService;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -54,9 +55,8 @@ class AuthController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update(AuthUpdateRequest $request)
     {
-        dd(123);
     }
 
     public function destroy(AdminUser $auth)
