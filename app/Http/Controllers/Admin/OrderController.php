@@ -55,4 +55,12 @@ class OrderController extends Controller
         session()->flash('success', "Send Successfully");
         return redirect(route('order.index'));
     }
+
+    public function destroy(Order $order)
+    {
+        $order->delete();
+
+        session()->flash('success', "Send Successfully");
+        return redirect(route('order.index'));
+    }
 }
