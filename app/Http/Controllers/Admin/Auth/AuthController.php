@@ -8,7 +8,7 @@ use App\Http\Requests\Auth\AuthUpdateRequest;
 use App\Models\AdminUser;
 use App\Services\AdminUserService;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -57,6 +57,7 @@ class AuthController extends Controller
 
     public function update(AuthUpdateRequest $request)
     {
+        
     }
 
     public function destroy(AdminUser $auth)
