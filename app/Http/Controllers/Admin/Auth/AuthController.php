@@ -55,9 +55,12 @@ class AuthController extends Controller
         ]);
     }
 
-    public function update(AuthUpdateRequest $request)
+    public function update(AuthUpdateRequest $request, AdminUser $auth)
     {
-        
+        $auth->update($request->getAdminInfo());
+
+        session()->flash('success', "Send Successfully");
+        return redirect('/admin/auth');
     }
 
     public function destroy(AdminUser $auth)
