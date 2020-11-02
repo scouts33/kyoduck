@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Rules\PasswordChecker;
 use App\Rules\Phone;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rule;
 
 class AuthUpdateRequest extends FormRequest
 {
@@ -28,7 +28,8 @@ class AuthUpdateRequest extends FormRequest
     {
         return [
             'password' => [
-                'required_with:new_password_confirmation,new_password'
+                'required_with:new_password_confirmation,new_password',
+                new PasswordChecker($this->route()->parameters['auth']),
             ],
             'new_password' => [
                 'confirmed',
@@ -52,11 +53,12 @@ class AuthUpdateRequest extends FormRequest
      */
     public function getAdminInfo()
     {
-        return[
-            'email' => $this->request->get('email'),
-            'password' => Hash::make($this->request->get('password')),
+        return array_filter([
+            'password' => $this->request->get('new_password') == null ? null : hash::make($this->request->get('new_password')),
             'name' => $this->request->get('name'),
-            'mobile' => $this->request->get('mobile'),
-        ];
+            'mobile' => $this->request->get('mobile')
+        ], function($val) {
+             return !is_null($val);
+        });
     }
 }

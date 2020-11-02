@@ -8,13 +8,13 @@ Route::get('/', function () {
 
 });
 
-Route::middleware('adminAuth:admin')->group(function () {
+//Route::middleware('adminAuth:admin')->group(function () {
     Route::namespace('Auth')->group(function () {
         Route::resource( 'auth','AuthController');
     });
     Route::resource('user', 'UserController');
     Route::resource('order', 'OrderController');
-});
+//});
 
 Route::middleware('guest')->group(function () {
     Route::namespace('Auth')->group(function () {

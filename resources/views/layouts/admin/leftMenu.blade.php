@@ -11,8 +11,8 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item @if(request()->path() == 'admin/auth')menu-open @endif">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             관리자 관리
@@ -21,7 +21,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('auth.index') }}" class="nav-link">
+                            <a href="{{ route('auth.index') }}" class="nav-link @if(request()->path() == 'admin/auth')active @endif">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>관리자 등록</p>
                             </a>
@@ -35,7 +35,7 @@
 {{--                    </a>--}}
 {{--                </li>--}}
                 <li class="nav-item">
-                    <a href="{{ route('order.index') }}" class="nav-link">
+                    <a href="{{ route('order.index') }}" class="nav-link @if(request()->path() == 'admin/order')active @endif">
                         <i class="nav-icon fas fa-book"></i>
                         <p>주문관리</p>
                     </a>

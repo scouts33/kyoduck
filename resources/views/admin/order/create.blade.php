@@ -43,15 +43,15 @@
                                     </div>
                                     <div class="form-group col-12 form-inline">
                                         <label for="password" class="col-md-2 col-sm-12 text-center">우편 번호</label>
-                                        <input class="form-control col-sm-12 col-md-2" type="text" name="zip_code" id="zip_code" readonly >
+                                        <input class="form-control col-sm-12 col-md-2" type="text" name="zip_code" id="zip_code" readonly value="{{ old('zip_code') }}">
                                     </div>
                                     <div class="form-group col-12 form-inline">
                                         <label for="id" class="col-sm-12 col-md-2 text-center">지번주소</label>
-                                        <input class="form-control col-sm-12 col-md-8" type="text" name="address" id="address" readonly >
+                                        <input class="form-control col-sm-12 col-md-8" type="text" name="address" id="address" readonly value="{{ old('address') }}">
                                     </div>
                                     <div class="form-group col-12 form-inline">
                                         <label for="id" class="col-sm-12 col-md-2 text-center">상세주소</label>
-                                        <input class="form-control col-sm-12 col-md-8" type="text" name="address_detail" id="address_detail">
+                                        <input class="form-control col-sm-12 col-md-8" type="text" name="address_detail" id="address_detail" value="{{ old('address_detail') }}">
                                         <button type="button" class="btn btn-success" id="addressSearch">주소 검색</button>
                                         <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
                                             <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" alt="닫기 버튼">

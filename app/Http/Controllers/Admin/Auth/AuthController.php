@@ -8,7 +8,7 @@ use App\Http\Requests\Auth\AuthUpdateRequest;
 use App\Models\AdminUser;
 use App\Services\AdminUserService;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -55,8 +55,12 @@ class AuthController extends Controller
         ]);
     }
 
-    public function update(AuthUpdateRequest $request)
+    public function update(AuthUpdateRequest $request, AdminUser $auth)
     {
+        $auth->update($request->getAdminInfo());
+
+        session()->flash('success', "Send Successfully");
+        return redirect('/admin/auth');
     }
 
     public function destroy(AdminUser $auth)
