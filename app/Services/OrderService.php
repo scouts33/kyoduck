@@ -3,7 +3,7 @@ namespace App\Services;
 
 
 use App\Filter\Admin\OrderFilter;
-use App\Models\order;
+use App\Models\Order;
 
 class OrderService
 {
