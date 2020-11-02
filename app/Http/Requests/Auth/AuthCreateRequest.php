@@ -30,7 +30,7 @@ class AuthCreateRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
-                Rule::unique('Admin_users', 'email')
+                Rule::unique('admin_users', 'email')
             ],
             'password' => [
                 'required',
